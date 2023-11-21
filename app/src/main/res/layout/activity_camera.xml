@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/back_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CameraActivity">
+
+
+    <androidx.camera.view.PreviewView
+        android:id="@+id/camera_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/whitesnow" />
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/image_capture_fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:elevation="6dp"
+        app:backgroundTint="@color/primaryColor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:contentDescription="@string/button_to_take_picture"
+        android:src="@drawable/ic_baseline_add_a_photo_24"
+        app:maxImageSize="36dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_finish_camera_activity"
+        android:layout_width="51dp"
+        android:layout_height="57dp"
+        android:layout_margin="8dp"
+        android:elevation="1dp"
+        android:src="@drawable/ic_baseline_arrow_back_24"
+        app:backgroundTint="@color/primaryDarkColor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:maxImageSize="48dp" />
+
+    <Button
+        android:id="@+id/validate_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/validate"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/image_capture_fab"
+        app:layout_constraintEnd_toStartOf="@id/image_capture_fab"
+        app:layout_constraintHorizontal_weight="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/image_capture_fab" />
+
+    <Button
+        android:id="@+id/cancel_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:text="@string/cancel"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@id/image_capture_fab"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="0.5"
+        app:layout_constraintStart_toEndOf="@id/image_capture_fab"
+
+        app:layout_constraintTop_toTopOf="@id/image_capture_fab" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/front_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="@id/back_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@color/transparentBlack75"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:layout_margin="16dp"
+        android:elevation="6dp"
+        android:visibility="invisible"
+
+        app:layout_constraintBottom_toTopOf="@id/image_capture_fab">
+
+
+        <TextView
+            android:id="@+id/textview_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="@string/select_a_room"
+            android:textColor="@color/whitesnow"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:theme="@style/REM"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/front_layout" />
+
+        <Spinner
+            android:id="@+id/room_select_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:background="@drawable/spinner_select_roomtype_background"
+            app:flow_verticalGap="8dp"
+            app:layout_constraintStart_toStartOf="@id/front_layout"
+            app:layout_constraintTop_toBottomOf="@id/textview_spinner" />
+
+        <ImageView
+            android:id="@+id/imageview_preview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="8dp"
+            android:background="@color/primaryColorTransparent70"
+            android:contentDescription="@string/preview_of_the_camera_taken_photo"
+            app:layout_constraintStart_toStartOf="parent"
+            android:elevation="2dp"
+            app:layout_constraintTop_toBottomOf="@id/room_select_spinner"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
