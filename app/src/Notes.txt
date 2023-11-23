@@ -4,7 +4,7 @@ StackOverflow
 
 Is CameraX api only for Kotlin or it is for java too?
 https://stackoverflow.com/questions/57257726/is-camerax-api-only-for-kotlin-or-it-is-for-java-too
-Il y a un lien vers des example en
+
 
 StackOverflow
 ============
