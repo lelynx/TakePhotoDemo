@@ -1,4 +1,4 @@
-package com.example.takephotodemo;
+package com.example.takephotodemo.model;
 
 import android.net.Uri;
 import android.os.Parcel;
@@ -6,7 +6,6 @@ import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 

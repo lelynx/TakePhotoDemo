@@ -1,4 +1,4 @@
-package com.example.takephotodemo;
+package com.example.takephotodemo.ui;
 
 import static com.example.takephotodemo.Utils.MEDIA_LIST;
 import static com.example.takephotodemo.Utils.MEDIA_LIST_CODE;
@@ -9,26 +9,33 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.takephotodemo.UseCase.ListPhotosUseCase;
+import com.example.takephotodemo.Utils;
 import com.example.takephotodemo.databinding.ActivityMainBinding;
+import com.example.takephotodemo.model.Media;
+import com.example.takephotodemo.model.MediaData;
 import com.example.takephotodemo.repositories.MediaRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+// https://developer.android.com/training/data-storage/shared/media?hl=fr#java
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
     Button mBtnTakePhoto;
+    Button mBtnListPhotos;
     ArrayList<MediaData> mMediaDataList = new ArrayList<>();
     List<Media> mMediaList = new ArrayList<Media>();
+
+    ListPhotosUseCase listPhotosUseCase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,14 +44,25 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         mBtnTakePhoto = binding.btnTakePhoto;
+        mBtnListPhotos = binding.btnListPhotos;
+        listPhotosUseCase = new ListPhotosUseCase(this);
 
         setListeners();
 
     }
 
     private void setListeners() {
+
         mBtnTakePhoto.setOnClickListener(view -> runCamera());
+
+        mBtnListPhotos.setOnClickListener(view -> displayPhotos());
     }
+
+    private void displayPhotos() {
+        Intent intent = new Intent(this, DisplayPhotoActivity.class);
+        startActivity(intent);
+    }
+
 
     private void runCamera() {
         Intent intent = new Intent(this, CameraActivity.class);

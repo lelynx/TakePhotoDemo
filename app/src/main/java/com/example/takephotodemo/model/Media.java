@@ -1,4 +1,4 @@
-package com.example.takephotodemo;
+package com.example.takephotodemo.model;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;

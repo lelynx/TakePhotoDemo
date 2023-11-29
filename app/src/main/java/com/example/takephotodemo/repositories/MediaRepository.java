@@ -4,9 +4,9 @@ import android.content.Context;
 
 import androidx.lifecycle.LiveData;
 
-import com.example.takephotodemo.Media;
 import com.example.takephotodemo.dao.MediaDao;
 import com.example.takephotodemo.dao.MediaDatabase;
+import com.example.takephotodemo.model.Media;
 
 import java.util.List;
 
